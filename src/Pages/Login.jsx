@@ -68,8 +68,7 @@ const Login = () => {
                     
                     {/* <div  style={{color: "red"}}>{Error ? <p>Invalid credentials</p>: <p></p>}</div> */}
                     
-            </form>
-            <p style={{textAlign:'center'}}>or</p>
+            </form> 
             <p style={{textAlign:'center'}}>---login as a guest---</p>
             <Link type="submit" className="login-button" to='/homeguest' style={{textDecoration: 'none', width: '30%', textAlign:'center',
         backgroundColor: 'black',color: 'white'}}>Login as guest</Link>
