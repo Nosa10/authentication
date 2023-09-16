@@ -7,4 +7,5 @@
     padding:40px; 
     gap: 50px;
     justify-content: space-between;
+    touch-action: none;
 }

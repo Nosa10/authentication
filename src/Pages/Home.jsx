@@ -2,9 +2,6 @@ import { signOut } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import {DndContext, closestCenter} from "@dnd-kit/core"
 import {arrayMove, SortableContext,verticalListSortingStrategy, horizontalListSortingStrategy, useSortable
 } from "@dnd-kit/sortable"
@@ -126,11 +123,14 @@ const Home =  () => {
     ];
     const [images, setImages] = useState(allImages)
     const [searchTags, setSearchTags] = useState([]);
+    const [loading, setLoading] = useState(false);
+    
     const SortableUser = ({image}) => {
         const {attributes, listeners, setNodeRef, transform,transition} = useSortable({id: image.id})
         const style = {
             transition,
-            transform: CSS.Transform.toString(transform)
+            transform: CSS.Transform.toString(transform),
+            
         }
         return (
             <div ref={setNodeRef} {...attributes}  {...listeners} style={style} >
@@ -169,7 +169,7 @@ const Home =  () => {
         <div className="home">
             <h1>Welcome to my Image gallery</h1>
             <h2>{user && user.email}</h2>
-            <button onClick={handleLogout}>Logout</button>
+            <button onClick={handleLogout} className="btn">Logout</button>
             <Search onSearch={handleSearch} onReset={handleReset} />
         <div className="imagess">
         <DndContext

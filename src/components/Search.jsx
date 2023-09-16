@@ -25,8 +25,8 @@ const Search = ({ onSearch, onReset }) => {
         value={searchInput}
         onChange={handleInputChange}
       />
-      <button onClick={handleSearch}>Search</button>
-      <button onClick={handleReset}>Reset</button>
+      <button onClick={handleSearch} className='btn'>Search</button>
+      <button onClick={handleReset} className='btn'>Reset</button>
     </div>
   );
 };

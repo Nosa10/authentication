@@ -1,10 +1,16 @@
+body{
+  overflow-x: none;
+}
+
+.home{
+  background-color: #1bd38c77;
+}
 .app{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  
 }
 .login {
   display: flex;
@@ -47,9 +53,17 @@ input{
 ::placeholder{
   opacity: 0.5;
 }
-.login h1{
+.btn{
+  cursor: pointer;
+  border: 0;
+  border-radius: 20%;
+  margin: 0 auto;
+  margin-right: 20px;
+  background-color: chocolate;
+}
+ h1{
   color: #939393;
-    font-family: 'Alex Brush';font-size: 22px;
+    font-family: 'Alex Brush';font-size: 40px;
     color: black;
     text-align: center;
 }
