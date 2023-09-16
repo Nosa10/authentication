@@ -17,7 +17,7 @@ const Home =  () => {
         await signOut(auth);
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        navigate('/login')
+        navigate('/')
     }
     const allImages = [
         { 

@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase-config";
@@ -20,7 +20,7 @@ const Login = () => {
             const user = userCredential.user;
             localStorage.setItem('token', user.accessToken);
             localStorage.setItem("user", JSON.stringify(user));
-            navigate('/');
+            navigate('/home');
         } catch (error) {
             console.error(error);
             alert(error.code)
@@ -61,8 +61,9 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     />
                     <button type="submit" className="login-button">Login</button>
+                    {/* <div  style={{color: "red"}}>{Error ? <p>Invalid credentials</p>: <p></p>}</div> */}
             </form>
-        {/* <div  style={{display : Error && 'block', color: "red"}}> Invalid UserName or Password</div> */}
+        
         </div>
     )
 }
