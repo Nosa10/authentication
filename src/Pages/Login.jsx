@@ -2,7 +2,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase-config";
-
+import {Link} from "react-router-dom"
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -16,7 +16,6 @@ const Login = () => {
 
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            //console.log(userCredential.accessToken);
             const user = userCredential.user;
             localStorage.setItem('token', user.accessToken);
             localStorage.setItem("user", JSON.stringify(user));
@@ -38,9 +37,14 @@ const Login = () => {
         }
         
     };
+    function handleGuest() {
+        
+    }
     return (
         <div className="login">
             <h1>Welcome to my Image Gallery</h1>
+            <p>Use the credentials to login:</p>
+            <p>Email: user@example.com, Password: 1Password</p>
             <form onSubmit={handleSubmit} className="login-form">
                 <label htmlFor="email"> Enter your Email:</label>
                 <input
@@ -61,8 +65,14 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     />
                     <button type="submit" className="login-button">Login</button>
+                    
                     {/* <div  style={{color: "red"}}>{Error ? <p>Invalid credentials</p>: <p></p>}</div> */}
+                    
             </form>
+            <p style={{textAlign:'center'}}>or</p>
+            <p style={{textAlign:'center'}}>---login as a guest---</p>
+            <Link type="submit" className="login-button" to='/homeguest' style={{textDecoration: 'none', width: '30%', textAlign:'center',
+        backgroundColor: 'black',color: 'white'}}>Login as guest</Link>
         
         </div>
     )

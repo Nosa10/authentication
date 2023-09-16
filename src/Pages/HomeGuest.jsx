@@ -9,7 +9,7 @@ import { CSS } from "@dnd-kit/utilities";
 import './Home.css'
 import Search from "../components/Search";
 
-const Home =  () => {
+const HomeGuest =  () => {
     const navigate = useNavigate()
     const user = JSON.parse(localStorage.getItem('user'))
 
@@ -125,20 +125,19 @@ const Home =  () => {
     const [searchTags, setSearchTags] = useState([]);
     const [loading, setLoading] = useState(false);
     
-    const SortableUser = ({image}) => {
-        const {attributes, listeners, setNodeRef, transform,transition} = useSortable({id: image.id})
-        const style = {
-            transition,
-            transform: CSS.Transform.toString(transform),
+    // const SortableUser = ({image}) => {
+    //     const {attributes, listeners, setNodeRef, transform,transition} = useSortable({id: image.id})
+    //     const style = {
+    //         transition,
+    //         transform: CSS.Transform.toString(transform),
             
-        }
-        return (
-            <div ref={setNodeRef} {...attributes}  {...listeners} style={style} >
-                       <img src={image.src} alt={image.alt} /> 
-                       <p style={{position: 'absolute', top:'-10%', backgroundColor: 'rgb(95, 92, 92)'}}>{image.tags[1].toUpperCase()}</p>
-                    </div>
-        )
-    }
+    //     }
+    //     return (
+    //         <div ref={setNodeRef} {...attributes}  {...listeners} style={style} >
+    //                    <img src={image.src} alt={images.alt} /> 
+    //                 </div>
+    //     )
+    // }
 
     const handleSearch = (tags) => {
         // search images based on tags
@@ -169,23 +168,16 @@ const Home =  () => {
         
         <div className="home">
             <h1>Welcome to my Image gallery</h1>
-            <h2>{user && user.email}</h2>
+            <h2>Guest</h2>
             <button onClick={handleLogout} className="btn">Logout</button>
             <Search onSearch={handleSearch} onReset={handleReset} />
-        <div className="imagess">
-        <DndContext
-            collisionDetection={closestCenter}
-            onDragEnd={handleDragEnd} >
-                <SortableContext items={images} strategy={verticalListSortingStrategy} >
+        <div className="imagess" >
                 {images.map((image, index) => (
-                    <div style={{position: 'relative'}}>
-                        <SortableUser key={image.id} image={image} />
-                        {/* <p style={{position: 'absolute', top:'-10%', backgroundColor: 'rgb(95, 92, 92)'}}>
-                            {image.tags[1].toUpperCase()}</p> */}
+                    <div style={{position:'relative'}}>
+                    <img src={image.src} alt={image.alt} />
+                    <p style={{position: 'absolute', top:'-10%', backgroundColor: 'rgb(95, 92, 92)'}}>{image.tags[1].toUpperCase()}</p>
                     </div>
                 ))}
-                </SortableContext>
-        </DndContext>
         </div>
         
         </div>
@@ -193,4 +185,4 @@ const Home =  () => {
   
 }
 
-export default Home
+export default HomeGuest

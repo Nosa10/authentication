@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Home from './Pages/Home'
 import Login from './Pages/Login'
+import HomeGuest from './Pages/HomeGuest'
 import './App.css'
 import { Outlet } from 'react-router-dom'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<Login />} />
           <Route path='/login' element={<Login />} />
           <Route path='/home' element={<Home />} />
+          <Route path='/homeguest' element={<HomeGuest />} />
         </Routes>
       </BrowserRouter>
     </div>

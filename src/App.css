@@ -44,7 +44,7 @@ input{
 }
 .login-button{
   cursor: pointer;
-  width: 40%;
+  width: 20%;
   margin: 0 auto;
   background-color: rgb(105,105,105);
   border: 0;
@@ -67,7 +67,7 @@ input{
     color: black;
     text-align: center;
 }
-label{
+/* label{
   text-align: start;
   margin-bottom: 10px;
   color: grey
@@ -75,4 +75,4 @@ label{
 img {
   max-width: 100%;
   height: auto;
-}
+} */
