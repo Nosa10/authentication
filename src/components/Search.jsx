@@ -9,7 +9,7 @@ const Search = ({ onSearch, onReset }) => {
 
   const handleSearch = () => {
     // Split the input into an array of tags, assuming tags are separated by spaces
-    const tags = searchInput.split(' ');
+    const tags = searchInput.toLowerCase().split(' ');
     onSearch(tags);
   };
   const handleReset = () => {
@@ -21,7 +21,7 @@ const Search = ({ onSearch, onReset }) => {
     <div>
       <input
         type="text"
-        placeholder="Enter tags to search..."
+        placeholder="Enter the name of countries or continents to search..."
         value={searchInput}
         onChange={handleInputChange}
       />
