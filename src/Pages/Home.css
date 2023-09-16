@@ -1,0 +1,9 @@
+.imagess{
+    margin: 20px;
+    width: 80%;
+    display: flex;
+    flex-Wrap: wrap; 
+    margin: 40px; 
+    padding:40px; 
+    justify-content: space-between;
+}

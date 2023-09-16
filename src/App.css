@@ -1,0 +1,64 @@
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  text-align: left;
+  font-size: 20px;
+  font: bolder;
+  width: 50%;
+  background: whitesmoke;
+  border: 2px whitesmoke solid;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin: 20px;
+}
+
+input, .login-button{
+  margin: 5px 0px;
+  margin-bottom: 20px;
+}
+input{
+  border: none;
+  width: 80%;
+  background: transparent;
+  border-bottom: 2px solid black;
+}
+.login-button{
+  cursor: pointer;
+  width: 40%;
+  margin: 0 auto;
+  background-color: rgb(105,105,105);
+  border: 0;
+  border-radius: 20px;
+}
+::placeholder{
+  opacity: 0.5;
+}
+.login h1{
+  color: #939393;
+    font-family: 'Alex Brush';font-size: 22px;
+    color: black;
+    text-align: center;
+}
+label{
+  text-align: start;
+  margin-bottom: 10px;
+  color: grey
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
